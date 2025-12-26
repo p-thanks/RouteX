@@ -18,7 +18,7 @@ public class RegisterRequest {
     private String email;
 
     @NotBlank @Size(min = 8)
-    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$")
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+~-]).*$")
     private String password;
 
     @NotBlank @Pattern(regexp = "^[0-9]{10,15}$")

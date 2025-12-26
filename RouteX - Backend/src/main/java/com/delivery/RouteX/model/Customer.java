@@ -33,7 +33,7 @@ public class Customer {
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Address> addresses = new ArrayList<>();
 
-    @Column(nullable = false)
+    @Column(name = "total_orders", nullable = false)
     private Integer totalOrders = 0;
 
     @Column(nullable = false, updatable = false)

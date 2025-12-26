@@ -12,7 +12,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -67,7 +68,6 @@ public class User implements UserDetails {
         updatedAt = LocalDateTime.now();
     }
 
-    // UserDetails implementation
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("ROLE_" + role.name()));
@@ -85,7 +85,7 @@ public class User implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return isActive;
+        return Boolean.TRUE.equals(isActive);
     }
 
     @Override
@@ -95,7 +95,7 @@ public class User implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return isActive;
+        return Boolean.TRUE.equals(isActive);
     }
 
     public enum Role {

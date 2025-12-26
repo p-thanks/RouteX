@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -361,9 +362,11 @@ public class OrderService {
                     .driverRating(driver.getRating());
         }
 
-        List<TrackingResponse> tracking = order.getTrackingHistory().stream()
+        List<TrackingResponse> tracking = order.getTrackingHistory() != null
+                ? order.getTrackingHistory().stream()
                 .map(this::mapToTrackingResponse)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList())
+                : new ArrayList<>();
         builder.trackingHistory(tracking);
 
         return builder.build();

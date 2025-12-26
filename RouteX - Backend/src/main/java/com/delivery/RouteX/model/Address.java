@@ -39,10 +39,10 @@ public class Address {
     @Column(nullable = false)
     private String country;
 
-    @Column(precision = 10, scale = 8)
+    @Column(precision = 10)
     private Double latitude;
 
-    @Column(precision = 11, scale = 8)
+    @Column(precision = 11)
     private Double longitude;
 
     @Column(nullable = false)

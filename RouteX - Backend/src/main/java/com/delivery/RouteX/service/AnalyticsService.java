@@ -35,7 +35,7 @@ public class AnalyticsService {
         if (revenueToday == null) revenueToday = 0.0;
 
         Long availableDrivers = (long) driverRepository
-                .findByAvailabilityStatus(com.delivery.model.Driver.AvailabilityStatus.ONLINE)
+                .findByAvailabilityStatus(com.delivery.RouteX.model.Driver.AvailabilityStatus.ONLINE)
                 .size();
 
         Double avgDeliveryTime = 45.0;
@@ -83,15 +83,15 @@ public class AnalyticsService {
     public OrderStatistics getOrderStatistics(LocalDateTime startDate, LocalDateTime endDate) {
         Long totalOrders = orderRepository.countOrdersInDateRange(startDate, endDate);
 
-        Long completed = orderRepository.findByStatusAndDateRange(
+        Long completed = (long) orderRepository.findByStatusAndDateRange(
                 Order.OrderStatus.DELIVERED, startDate, endDate
         ).size();
 
-        Long cancelled = orderRepository.findByStatusAndDateRange(
+        Long cancelled = (long) orderRepository.findByStatusAndDateRange(
                 Order.OrderStatus.CANCELLED, startDate, endDate
         ).size();
 
-        Long failed = orderRepository.findByStatusAndDateRange(
+        Long failed = (long) orderRepository.findByStatusAndDateRange(
                 Order.OrderStatus.FAILED, startDate, endDate
         ).size();
 

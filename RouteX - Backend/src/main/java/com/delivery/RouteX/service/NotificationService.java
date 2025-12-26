@@ -27,6 +27,7 @@ public class NotificationService {
                         order.getOrderNumber()))
                 .relatedEntityId(order.getId().toString())
                 .actionUrl("/customer/orders/" + order.getId())
+                .isRead(false)
                 .build();
 
         notificationRepository.save(notification);

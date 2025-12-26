@@ -72,12 +72,19 @@ public class AuthService {
                     .vehiclePlate(request.getVehiclePlate())
                     .licenseNumber(request.getLicenseNumber())
                     .availabilityStatus(Driver.AvailabilityStatus.OFFLINE)
+                    .completedDeliveries(0)      // Add this
+                    .cancelledDeliveries(0)      // Add this
+                    .totalDeliveries(0)          // Add this
+                    .totalEarnings(0.0)          // Add this
+                    .rating(0.0)
                     .build();
             driverRepository.save(driver);
         } else if (role == User.Role.CUSTOMER) {
             Customer customer = Customer.builder()
                     .user(user)
+                    .totalOrders(0)
                     .build();
+
             customerRepository.save(customer);
         }
 

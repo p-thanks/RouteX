@@ -34,10 +34,10 @@ public class Driver {
 
     private LocalDateTime licenseExpiry;
 
-    @Column(precision = 10, scale = 8)
+    @Column(precision = 10)
     private Double currentLatitude;
 
-    @Column(precision = 11, scale = 8)
+    @Column(precision = 11)
     private Double currentLongitude;
 
     @Enumerated(EnumType.STRING)

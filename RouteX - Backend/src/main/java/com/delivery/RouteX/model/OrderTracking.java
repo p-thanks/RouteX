@@ -24,10 +24,10 @@ public class OrderTracking {
     @Column(nullable = false)
     private Order.OrderStatus status;
 
-    @Column(precision = 10, scale = 8)
+    @Column(precision = 10)
     private Double latitude;
 
-    @Column(precision = 11, scale = 8)
+    @Column(precision = 11)
     private Double longitude;
 
     @Column(length = 500)

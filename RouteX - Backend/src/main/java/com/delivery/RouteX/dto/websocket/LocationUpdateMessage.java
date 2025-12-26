@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-class LocationUpdateMessage {
+public class LocationUpdateMessage {
     private Long orderId;
     private Long driverId;
     private Double latitude;

@@ -38,10 +38,10 @@ public class Order {
     @Column(nullable = false)
     private String pickupAddress;
 
-    @Column(nullable = false, precision = 10, scale = 8)
+    @Column(nullable = false, precision = 10)
     private Double pickupLatitude;
 
-    @Column(nullable = false, precision = 11, scale = 8)
+    @Column(nullable = false, precision = 11)
     private Double pickupLongitude;
 
     @Column(nullable = false)
@@ -53,10 +53,10 @@ public class Order {
     @Column(nullable = false)
     private String deliveryAddress;
 
-    @Column(nullable = false, precision = 10, scale = 8)
+    @Column(nullable = false, precision = 10)
     private Double deliveryLatitude;
 
-    @Column(nullable = false, precision = 11, scale = 8)
+    @Column(nullable = false, precision = 11)
     private Double deliveryLongitude;
 
     @Column(nullable = false)
@@ -200,7 +200,7 @@ public class Order {
         if (driver != null) {
             tracking.setLatitude(driver.getCurrentLatitude());
             tracking.setLongitude(driver.getCurrentLongitude());
-        }
+        }  
 
         trackingHistory.add(tracking);
     }
